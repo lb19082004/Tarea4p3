@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — To-Do CRUD</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+
+  <div class="app-shell">
+
+
+    <header class="topbar">
+      <div class="topbar-logo">To<span>Do</span> List</div>
+      <div class="topbar-user">
+        <div class="avatar" id="user-initial">A</div>
+        <span id="user-name">Usuario</span>
+        <button id="btn-logout">Salir</button>
+      </div>
+    </header>
+
+    <nav class="sidebar">
+      <span class="sidebar-label">Menú</span>
+
+      <button class="nav-item active">
+        <span class="icon">📋</span> Mis Tareas
+        <span class="badge" id="sidebar-count">0</span>
+      </button>
+
+      <button class="nav-item" id="btn-new-task-2">
+        <span class="icon">➕</span> Nueva Tarea
+      </button>
+
+      <span class="sidebar-label" style="margin-top:1rem">Plan</span>
+      <div style="padding:0.6rem 0.8rem;display:flex;align-items:center;gap:0.5rem">
+        <span id="plan-badge" style="font-size:0.7rem;padding:0.2rem 0.6rem;border-radius:99px;font-weight:700">FREE</span>
+        <span style="font-size:0.8rem;color:#7b829e">Suscripción</span>
+      </div>
+
+      <span class="sidebar-label" style="margin-top:auto">Info</span>
+      <div style="padding:0.4rem 0.8rem;font-size:0.75rem;color:#7b829e;line-height:1.5">
+        Marca tu tarea recuerda que es prioridad<br>LB-19<br>
+      </div>
+    </nav>
+
+
+    <main class="main">
+
+      
+      <div class="stats-grid">
+        <div class="stat-card s-blue">
+          <span class="stat-label">Total</span>
+          <span class="stat-value" id="stat-total">0</span>
+        </div>
+        <div class="stat-card s-yellow">
+          <span class="stat-label">Pendientes</span>
+          <span class="stat-value" id="stat-pending">0</span>
+        </div>
+        <div class="stat-card s-green">
+          <span class="stat-label">Completadas</span>
+          <span class="stat-value" id="stat-done">0</span>
+        </div>
+        <div class="stat-card s-red">
+          <span class="stat-label">Alta prioridad</span>
+          <span class="stat-value" id="stat-high">0</span>
+        </div>
+      </div>
+
+    
+      <div class="section-header">
+        <h2 class="section-title">Mis Tareas</h2>
+        <button class="btn btn-primary" id="btn-new-task">
+          ➕ Nueva Tarea
+        </button>
+      </div>
+
+    
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">Todas</button>
+        <button class="filter-btn" data-filter="pending">Pendientes</button>
+        <button class="filter-btn" data-filter="done">Completadas</button>
+        <button class="filter-btn" data-filter="alta">🔴 Alta</button>
+        <button class="filter-btn" data-filter="media">🟡 Media</button>
+        <button class="filter-btn" data-filter="baja">🟢 Baja</button>
+      </div>
+
+   
+      <div id="task-list">
+    
+      </div>
+
+    </main>
+  </div>
+
+ 
+  <div class="modal-overlay" id="task-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Nueva Tarea</h3>
+        <button class="modal-close" id="modal-close">×</button>
+      </div>
+
+      <form id="task-form">
+        <input type="hidden" id="editing-id" />
+
+        <div class="form-group">
+          <label class="form-label" for="task-title">Título *</label>
+          <input class="form-control" type="text" id="task-title"
+                 placeholder="Ej: Estudiar para el parcial" maxlength="80" />
+          <span class="form-error" id="err-title"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="task-description">Descripción</label>
+          <textarea class="form-control" id="task-description"
+                    placeholder="Descripción opcional de la tarea…" maxlength="300"></textarea>
+          <span class="form-error" id="err-description"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="task-priority">Prioridad *</label>
+          <select class="form-control" id="task-priority">
+            <option value="">— Selecciona —</option>
+            <option value="alta">🔴 Alta</option>
+            <option value="media">🟡 Media</option>
+            <option value="baja">🟢 Baja</option>
+          </select>
+          <span class="form-error" id="err-priority"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="task-dueDate">Fecha límite</label>
+          <input class="form-control" type="date" id="task-dueDate" />
+          <span class="form-error" id="err-dueDate"></span>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-ghost" id="btn-cancel">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar Tarea</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  
+  <div class="toast-container" id="toast-container"></div>
+
+ 
+  <script src="js/utils.js"></script>
+  <script src="js/validation.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/payment.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,602 @@
+{
+  "stats": {
+    "suites": 5,
+    "tests": 13,
+    "passes": 13,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-04-04T01:18:51.664Z",
+    "end": "2026-04-04T01:19:50.002Z",
+    "duration": 58338,
+    "testsRegistered": 13,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "57e8ae73-cab7-45c0-b503-71ab02559f5e",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8b6b8254-b120-4ea3-a12b-0dfc058f0f06",
+          "title": "HU-01: Login exitoso",
+          "fullFile": "D:\\Programacion III\\crud-tareas\\tests\\todo.test.js",
+          "file": "\\todo.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"HU-01: Login exitoso\"",
+              "fullTitle": "HU-01: Login exitoso \"before each\" hook in \"HU-01: Login exitoso\"",
+              "timedOut": false,
+              "duration": 678,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await buildDriver();",
+              "err": {},
+              "uuid": "a1ee81b6-490b-4975-9313-619da99ea39f",
+              "parentUUID": "8b6b8254-b120-4ea3-a12b-0dfc058f0f06",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"HU-01: Login exitoso\"",
+              "fullTitle": "HU-01: Login exitoso \"after each\" hook in \"HU-01: Login exitoso\"",
+              "timedOut": false,
+              "duration": 44,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (driver) await driver.quit();",
+              "err": {},
+              "uuid": "d470202e-e4e5-4cb3-af3b-825bf040b61c",
+              "parentUUID": "8b6b8254-b120-4ea3-a12b-0dfc058f0f06",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "✅ Camino feliz: login correcto redirige al dashboard",
+              "fullTitle": "HU-01: Login exitoso ✅ Camino feliz: login correcto redirige al dashboard",
+              "timedOut": false,
+              "duration": 2097,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await doLogin(driver);\nawait waitForDashboard(driver);\nconst url = await driver.getCurrentUrl();\nawait takeScreenshot(driver, 'HU01-camino-feliz');\nassert.ok(url.includes('index.html'));",
+              "err": {},
+              "uuid": "cf7416b4-b928-4be9-bf4f-fc9949172896",
+              "parentUUID": "8b6b8254-b120-4ea3-a12b-0dfc058f0f06",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "🔲 Límites: contraseña de un carácter es rechazada",
+              "fullTitle": "HU-01: Login exitoso 🔲 Límites: contraseña de un carácter es rechazada",
+              "timedOut": false,
+              "duration": 2428,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(LOGIN_URL);\nawait driver.findElement(By.id('username')).sendKeys('admin');\nawait driver.findElement(By.id('password')).sendKeys('1');\nawait driver.findElement(By.id('btn-login')).click();\nawait driver.sleep(800);\nconst err = await driver.findElement(By.id('login-error'));\nawait takeScreenshot(driver, 'HU01-limite-password-corto');\nassert.strictEqual(await err.isDisplayed(), true);",
+              "err": {},
+              "uuid": "49447c24-c028-4961-81b0-ea2afacf537c",
+              "parentUUID": "8b6b8254-b120-4ea3-a12b-0dfc058f0f06",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "cf7416b4-b928-4be9-bf4f-fc9949172896",
+            "49447c24-c028-4961-81b0-ea2afacf537c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4525,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        },
+        {
+          "uuid": "60491634-55e0-4d0b-8d33-aebf958299f4",
+          "title": "HU-02: Login fallido",
+          "fullFile": "D:\\Programacion III\\crud-tareas\\tests\\todo.test.js",
+          "file": "\\todo.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"HU-02: Login fallido\"",
+              "fullTitle": "HU-02: Login fallido \"before each\" hook in \"HU-02: Login fallido\"",
+              "timedOut": false,
+              "duration": 680,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await buildDriver();",
+              "err": {},
+              "uuid": "9af92dee-112e-4976-af29-99aaefbb1539",
+              "parentUUID": "60491634-55e0-4d0b-8d33-aebf958299f4",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"HU-02: Login fallido\"",
+              "fullTitle": "HU-02: Login fallido \"after each\" hook in \"HU-02: Login fallido\"",
+              "timedOut": false,
+              "duration": 62,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (driver) await driver.quit();",
+              "err": {},
+              "uuid": "84c8db21-a461-4cb1-9b81-72bc10aad495",
+              "parentUUID": "60491634-55e0-4d0b-8d33-aebf958299f4",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "❌ Negativa: credenciales incorrectas muestran error",
+              "fullTitle": "HU-02: Login fallido ❌ Negativa: credenciales incorrectas muestran error",
+              "timedOut": false,
+              "duration": 4494,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(LOGIN_URL);\nawait driver.findElement(By.id('username')).sendKeys('fake');\nawait driver.findElement(By.id('password')).sendKeys('fake');\nawait driver.findElement(By.id('btn-login')).click();\nawait driver.sleep(800);\nconst err = await driver.findElement(By.id('login-error'));\nawait takeScreenshot(driver, 'HU02-negativa-credenciales-malas');\nassert.strictEqual(await err.isDisplayed(), true);",
+              "err": {},
+              "uuid": "80235849-8199-4270-80cc-c4ce095ab74d",
+              "parentUUID": "60491634-55e0-4d0b-8d33-aebf958299f4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "🔲 Límites: campos vacíos no permiten avanzar",
+              "fullTitle": "HU-02: Login fallido 🔲 Límites: campos vacíos no permiten avanzar",
+              "timedOut": false,
+              "duration": 1714,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(LOGIN_URL);\nawait driver.findElement(By.id('username')).sendKeys(' ');\nawait driver.findElement(By.id('password')).sendKeys(' ');\nawait driver.findElement(By.id('btn-login')).click();\nawait driver.sleep(800);\nconst err = await driver.findElement(By.id('login-error'));\nawait takeScreenshot(driver, 'HU02-limite-campos-vacios');\nassert.strictEqual(await err.isDisplayed(), true);",
+              "err": {},
+              "uuid": "bc6cba71-bff0-40bd-840a-430f54ac36e8",
+              "parentUUID": "60491634-55e0-4d0b-8d33-aebf958299f4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "80235849-8199-4270-80cc-c4ce095ab74d",
+            "bc6cba71-bff0-40bd-840a-430f54ac36e8"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6208,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        },
+        {
+          "uuid": "cdcb2cac-9bda-4f72-8192-0770df4ddc83",
+          "title": "HU-03: Crear tarea",
+          "fullFile": "D:\\Programacion III\\crud-tareas\\tests\\todo.test.js",
+          "file": "\\todo.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"HU-03: Crear tarea\"",
+              "fullTitle": "HU-03: Crear tarea \"before each\" hook in \"HU-03: Crear tarea\"",
+              "timedOut": false,
+              "duration": 2241,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await buildDriver();\nawait doLogin(driver);\nawait waitForDashboard(driver);",
+              "err": {},
+              "uuid": "390d23ac-a921-4230-8cf9-9a53ac1142f7",
+              "parentUUID": "cdcb2cac-9bda-4f72-8192-0770df4ddc83",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"HU-03: Crear tarea\"",
+              "fullTitle": "HU-03: Crear tarea \"after each\" hook in \"HU-03: Crear tarea\"",
+              "timedOut": false,
+              "duration": 48,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (driver) await driver.quit();",
+              "err": {},
+              "uuid": "39d4d912-c05b-4b80-911b-4a421b606d59",
+              "parentUUID": "cdcb2cac-9bda-4f72-8192-0770df4ddc83",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "✅ Camino feliz: crear tarea correctamente",
+              "fullTitle": "HU-03: Crear tarea ✅ Camino feliz: crear tarea correctamente",
+              "timedOut": false,
+              "duration": 1098,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await fillTaskForm(driver, 'Tarea Selenium', 'alta');\nawait driver.findElement(By.css('#task-form button[type=\"submit\"]')).click();\nawait driver.sleep(800);\nconst cards = await driver.findElements(By.css('.task-card'));\nawait takeScreenshot(driver, 'HU03-camino-feliz-crear');\nassert.ok(cards.length >= 1);",
+              "err": {},
+              "uuid": "bf0ff395-b9c8-4966-9c5d-aa2ee54335a7",
+              "parentUUID": "cdcb2cac-9bda-4f72-8192-0770df4ddc83",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "❌ Negativa: no debe crear tarea sin título",
+              "fullTitle": "HU-03: Crear tarea ❌ Negativa: no debe crear tarea sin título",
+              "timedOut": false,
+              "duration": 740,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.findElement(By.id('btn-new-task')).click();\nawait driver.wait(until.elementLocated(By.id('task-title')), TIMEOUT);\nconst sel = await driver.findElement(By.id('task-priority'));\nawait sel.findElement(By.css('option[value=\"media\"]')).click();\nawait driver.findElement(By.css('#task-form button[type=\"submit\"]')).click();\nawait driver.sleep(500);\nconst errTitle = await driver.findElement(By.id('err-title'));\nawait takeScreenshot(driver, 'HU03-negativa-sin-titulo');\nassert.strictEqual(await errTitle.isDisplayed(), true);",
+              "err": {},
+              "uuid": "1abc02ee-e148-4449-a27c-bb47eab53e50",
+              "parentUUID": "cdcb2cac-9bda-4f72-8192-0770df4ddc83",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "🔲 Límites: título de 80 caracteres es aceptado",
+              "fullTitle": "HU-03: Crear tarea 🔲 Límites: título de 80 caracteres es aceptado",
+              "timedOut": false,
+              "duration": 1164,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await fillTaskForm(driver, 'A'.repeat(80), 'baja');\nawait driver.findElement(By.css('#task-form button[type=\"submit\"]')).click();\nawait driver.sleep(800);\nconst cards = await driver.findElements(By.css('.task-card'));\nawait takeScreenshot(driver, 'HU03-limite-80-caracteres');\nassert.ok(cards.length >= 1);",
+              "err": {},
+              "uuid": "3e875edd-9570-4128-8796-4174be046576",
+              "parentUUID": "cdcb2cac-9bda-4f72-8192-0770df4ddc83",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "bf0ff395-b9c8-4966-9c5d-aa2ee54335a7",
+            "1abc02ee-e148-4449-a27c-bb47eab53e50",
+            "3e875edd-9570-4128-8796-4174be046576"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3002,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 45000
+        },
+        {
+          "uuid": "6c79491e-25ca-4fdd-be87-b882ae49c8f8",
+          "title": "HU-04: Editar tarea",
+          "fullFile": "D:\\Programacion III\\crud-tareas\\tests\\todo.test.js",
+          "file": "\\todo.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"HU-04: Editar tarea\"",
+              "fullTitle": "HU-04: Editar tarea \"before each\" hook in \"HU-04: Editar tarea\"",
+              "timedOut": false,
+              "duration": 3834,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await buildDriver();\nawait doLogin(driver);\nawait waitForDashboard(driver);\nawait fillTaskForm(driver, 'Tarea base', 'media');\nawait driver.findElement(By.css('#task-form button[type=\"submit\"]')).click();\nawait driver.sleep(800);",
+              "err": {},
+              "uuid": "61128ee0-720e-40a2-9022-3ae4993cf221",
+              "parentUUID": "6c79491e-25ca-4fdd-be87-b882ae49c8f8",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"HU-04: Editar tarea\"",
+              "fullTitle": "HU-04: Editar tarea \"after each\" hook in \"HU-04: Editar tarea\"",
+              "timedOut": false,
+              "duration": 74,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (driver) await driver.quit();",
+              "err": {},
+              "uuid": "267843a1-1bf5-4ff6-9a54-af475bbaa262",
+              "parentUUID": "6c79491e-25ca-4fdd-be87-b882ae49c8f8",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "✅ Camino feliz: editar título de tarea existente",
+              "fullTitle": "HU-04: Editar tarea ✅ Camino feliz: editar título de tarea existente",
+              "timedOut": false,
+              "duration": 1074,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.findElement(By.css('[data-edit]')).click();\nconst input = await driver.findElement(By.id('task-title'));\nawait input.clear();\nawait input.sendKeys('Editada por Selenium');\nawait driver.findElement(By.css('#task-form button[type=\"submit\"]')).click();\nawait driver.sleep(800);\nconst text = await driver.findElement(By.css('.task-title')).getText();\nawait takeScreenshot(driver, 'HU04-camino-feliz-editar');\nassert.ok(text.includes('Editada por Selenium'));",
+              "err": {},
+              "uuid": "34e041e2-ef60-4ba1-8d11-0b577a2ef712",
+              "parentUUID": "6c79491e-25ca-4fdd-be87-b882ae49c8f8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "❌ Negativa: borrar título al editar muestra error",
+              "fullTitle": "HU-04: Editar tarea ❌ Negativa: borrar título al editar muestra error",
+              "timedOut": false,
+              "duration": 798,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.findElement(By.css('[data-edit]')).click();\nawait driver.wait(until.elementLocated(By.id('task-title')), TIMEOUT);\nconst input = await driver.findElement(By.id('task-title'));\nawait input.sendKeys(Key.CONTROL + 'a');\nawait input.sendKeys(Key.BACK_SPACE);\nawait driver.findElement(By.css('#task-form button[type=\"submit\"]')).click();\nawait driver.sleep(500);\nconst errTitle = await driver.findElement(By.id('err-title'));\nawait takeScreenshot(driver, 'HU04-negativa-titulo-vacio');\nassert.strictEqual(await errTitle.isDisplayed(), true);",
+              "err": {},
+              "uuid": "6935c02c-57d1-41ec-9d5e-9e782c417862",
+              "parentUUID": "6c79491e-25ca-4fdd-be87-b882ae49c8f8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "🔲 Límites: cambiar prioridad a alta refleja el cambio",
+              "fullTitle": "HU-04: Editar tarea 🔲 Límites: cambiar prioridad a alta refleja el cambio",
+              "timedOut": false,
+              "duration": 1006,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.findElement(By.css('[data-edit]')).click();\nawait driver.wait(until.elementLocated(By.id('task-priority')), TIMEOUT);\nconst sel = await driver.findElement(By.id('task-priority'));\nawait sel.findElement(By.css('option[value=\"alta\"]')).click();\nawait driver.findElement(By.css('#task-form button[type=\"submit\"]')).click();\nawait driver.sleep(800);\nconst badge = await driver.findElement(By.css('.tag-alta'));\nawait takeScreenshot(driver, 'HU04-limite-prioridad-alta');\nassert.strictEqual(await badge.isDisplayed(), true);",
+              "err": {},
+              "uuid": "f66efa74-e2bc-45cc-9f3c-33b4c5d70c01",
+              "parentUUID": "6c79491e-25ca-4fdd-be87-b882ae49c8f8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "34e041e2-ef60-4ba1-8d11-0b577a2ef712",
+            "6935c02c-57d1-41ec-9d5e-9e782c417862",
+            "f66efa74-e2bc-45cc-9f3c-33b4c5d70c01"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2878,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 45000
+        },
+        {
+          "uuid": "5a1a7d2c-8e70-48db-b1f2-bd711d79b008",
+          "title": "HU-05: Eliminar tarea",
+          "fullFile": "D:\\Programacion III\\crud-tareas\\tests\\todo.test.js",
+          "file": "\\todo.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"HU-05: Eliminar tarea\"",
+              "fullTitle": "HU-05: Eliminar tarea \"before each\" hook in \"HU-05: Eliminar tarea\"",
+              "timedOut": false,
+              "duration": 4256,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await buildDriver();\nawait doLogin(driver);\nawait waitForDashboard(driver);\nawait fillTaskForm(driver, 'Eliminar', 'baja');\nawait driver.findElement(By.css('#task-form button[type=\"submit\"]')).click();\nawait driver.sleep(800);",
+              "err": {},
+              "uuid": "4acf7124-e1f3-463c-aebb-0b481b1838f1",
+              "parentUUID": "5a1a7d2c-8e70-48db-b1f2-bd711d79b008",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"HU-05: Eliminar tarea\"",
+              "fullTitle": "HU-05: Eliminar tarea \"after each\" hook in \"HU-05: Eliminar tarea\"",
+              "timedOut": false,
+              "duration": 83,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (driver) await driver.quit();",
+              "err": {},
+              "uuid": "5e6df470-de53-483c-a452-83099a926fce",
+              "parentUUID": "5a1a7d2c-8e70-48db-b1f2-bd711d79b008",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "✅ Camino feliz: eliminar tarea la quita de la lista",
+              "fullTitle": "HU-05: Eliminar tarea ✅ Camino feliz: eliminar tarea la quita de la lista",
+              "timedOut": false,
+              "duration": 916,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const before = await driver.findElements(By.css('.task-card'));\nawait driver.findElement(By.css('[data-delete]')).click();\nawait driver.switchTo().alert().accept();\nawait driver.sleep(800);\nconst after = await driver.findElements(By.css('.task-card'));\nawait takeScreenshot(driver, 'HU05-camino-feliz-eliminar');\nassert.strictEqual(after.length, before.length - 1);",
+              "err": {},
+              "uuid": "bdc1f961-a8e5-48f0-971d-1d625104894f",
+              "parentUUID": "5a1a7d2c-8e70-48db-b1f2-bd711d79b008",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "❌ Negativa: cancelar el diálogo NO elimina la tarea",
+              "fullTitle": "HU-05: Eliminar tarea ❌ Negativa: cancelar el diálogo NO elimina la tarea",
+              "timedOut": false,
+              "duration": 641,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const before = await driver.findElements(By.css('.task-card'));\nawait driver.findElement(By.css('[data-delete]')).click();\nawait driver.switchTo().alert().dismiss();\nawait driver.sleep(500);\nconst after = await driver.findElements(By.css('.task-card'));\nawait takeScreenshot(driver, 'HU05-negativa-cancelar-eliminar');\nassert.strictEqual(after.length, before.length);",
+              "err": {},
+              "uuid": "df071cc3-64e4-45b3-b10d-62b607803199",
+              "parentUUID": "5a1a7d2c-8e70-48db-b1f2-bd711d79b008",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "🔲 Límites: eliminar la única tarea muestra estado vacío",
+              "fullTitle": "HU-05: Eliminar tarea 🔲 Límites: eliminar la única tarea muestra estado vacío",
+              "timedOut": false,
+              "duration": 907,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.findElement(By.css('[data-delete]')).click();\nawait driver.switchTo().alert().accept();\nawait driver.sleep(800);\nconst empty = await driver.findElements(By.css('.empty-state'));\nawait takeScreenshot(driver, 'HU05-limite-lista-vacia');\nassert.ok(empty.length >= 1);",
+              "err": {},
+              "uuid": "2cd4b67b-b1a3-42a8-ba30-871debc96dd2",
+              "parentUUID": "5a1a7d2c-8e70-48db-b1f2-bd711d79b008",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "bdc1f961-a8e5-48f0-971d-1d625104894f",
+            "df071cc3-64e4-45b3-b10d-62b607803199",
+            "2cd4b67b-b1a3-42a8-ba30-871debc96dd2"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2464,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 45000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 30000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.3.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "reporte",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports",
+        "reportFilename": "reporte",
+        "overwrite": "true"
+      },
+      "version": "6.3.2"
+    }
+  }
+}
