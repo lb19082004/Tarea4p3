@@ -1,0 +1,19 @@
+{
+  "name": "tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "todo.test.js",
+  "scripts": {
+    "test": "mocha todo.test.js --reporter mochawesome --reporter-options reportDir=reports,reportFilename=reporte,overwrite=true --timeout 30000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "chromedriver": "^146.0.6",
+    "mocha": "^11.3.0",
+    "mochawesome": "^7.1.4",
+    "selenium-webdriver": "^4.41.0"
+  }
+}
